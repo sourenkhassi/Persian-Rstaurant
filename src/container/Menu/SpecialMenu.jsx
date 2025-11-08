@@ -1,0 +1,56 @@
+import React from "react";
+
+import { SubHeading, MenuItem } from "../../components";
+import { data, images } from "../../constants";
+import "./SpecialMenu.css";
+
+const SpecialMenu = () => (
+  <div className="app__specialMenu flex__center section__padding" id="menu">
+    <div className="app__specialMenu-title">
+      <SubHeading title="منویی که به سلیقه شما می‌خورد" />
+      <h1 className="headtext__cormorant">ویژه امروز</h1>
+    </div>
+
+    <div className="app__specialMenu-menu">
+      <div className="app__specialMenu-menu_wine  flex__center">
+        <p className="app__specialMenu-menu_heading">کباب‌ها</p>
+        <div className="app__specialMenu_menu_items">
+          {data.kebabs.map((kebab, index) => (
+            <MenuItem
+              key={kebab.title + index}
+              title={kebab.title}
+              price={kebab.price}
+              tags={kebab.tags}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="app__specialMenu-menu_img">
+        <img src={images.menu} alt="menu__img" />
+      </div>
+
+      <div className="app__specialMenu-menu_cocktails  flex__center">
+        <p className="app__specialMenu-menu_heading">خورش‌ها</p>
+        <div className="app__specialMenu_menu_items">
+          {data.khoreshs.map((khoresh, index) => (
+            <MenuItem
+              key={khoresh.title + index}
+              title={khoresh.title}
+              price={khoresh.price}
+              tags={khoresh.tags}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div style={{ marginTop: 15 }}>
+      <button type="button" className="custom__button">
+        بیشتر ببینید
+      </button>
+    </div>
+  </div>
+);
+
+export default SpecialMenu;
